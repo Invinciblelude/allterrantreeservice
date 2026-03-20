@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote — All Terrain Tree Service Inc. | Sacramento, CA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1a3c34;
+      --forest-light: #2d5a4a;
+      --bark: #3d2c1e;
+      --cream: #f8f6f1;
+      --gold: #c9a227;
+      --gold-hover: #d4b03a;
+      --white: #ffffff;
+      --muted: #6b7c76;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--bark);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(26, 60, 52, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--cream);
+    }
+    .logo span { color: var(--gold); }
+
+    nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1.5rem;
+    }
+    nav a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--forest);
+      transition: all 0.2s;
+    }
+    .btn:hover { background: var(--gold-hover); }
+
+    main { padding: 6rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .quote-cta {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .quote-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .quote-cta p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1rem;
+      font-size: 0.9375rem;
+    }
+
+    .quote-cta .btn {
+      background: var(--gold);
+      color: var(--forest);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 2.5rem 0 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(26, 60, 52, 0.08);
+      border-top: 4px solid var(--gold);
+    }
+
+    .pricing-card h3 {
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-size: 0.9375rem;
+      border-bottom: 1px solid #eee;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row .amt { font-weight: 600; color: var(--forest); }
+
+    .doc-sample {
+      background: var(--white);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .doc-header {
+      border-bottom: 2px solid var(--forest);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .doc-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--forest);
+    }
+
+    .doc-meta {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 600px) { .doc-grid { grid-template-columns: 1fr; } }
+
+    .doc-field { font-size: 0.875rem; }
+    .doc-field label {
+      display: block;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin: 1rem 0;
+    }
+
+    .doc-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      background: var(--cream);
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    .doc-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .doc-table .text-right { text-align: right; }
+
+    .doc-footer {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .signature-line {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ccc;
+    }
+    .signature-line label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--forest);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    .sample-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">All Terrain <span>Tree Service</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#contact" class="btn">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <a href="index.html" class="back-link">← Back to ATTS</a>
+
+    <h1 class="page-title">Get a Quote</h1>
+    <p class="page-subtitle">Request a free estimate for your tree service needs. Utility line clearance, tree trimming, stump grinding, and more.</p>
+
+    <div class="quote-cta">
+      <h2>Call For Your Free Estimate</h2>
+      <p>Contact us by phone or text anytime. Our estimate visits are completely free. 24/7 emergency service available.</p>
+      <a href="tel:+19168413095" class="btn">(916) 841-3095</a>
+      <p style="margin-top: 0.75rem;"><a href="https://allterraintreeserviceinc.com" style="color: var(--gold);">allterraintreeserviceinc.com</a></p>
+    </div>
+
+    <p class="section-label">Pricing Guide</p>
+    <h2 class="section-title">Residential — General Ranges</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Tree Removal</h3>
+        <div class="price-row"><span>Small (under 30ft)</span><span class="amt">$300–$800</span></div>
+        <div class="price-row"><span>Medium (30–60ft)</span><span class="amt">$800–$1,500</span></div>
+        <div class="price-row"><span>Large (60–100ft)</span><span class="amt">$1,500–$3,500</span></div>
+        <div class="price-row"><span>Hazardous/difficult access</span><span class="amt">+20–40%</span></div>
+      </div>
+      <div class="pricing-card">
+        <h3>Add-On Services</h3>
+        <div class="price-row"><span>Stump grinding</span><span class="amt">$150–$400/stump</span></div>
+        <div class="price-row"><span>Debris hauling/cleanup</span><span class="amt">$100–$300</span></div>
+        <div class="price-row"><span>Wood chipping</span><span class="amt">$75–$200</span></div>
+      </div>
+    </div>
+
+    <p class="section-label">Sample Documents</p>
+    <h2 class="section-title">Professional Bids & Invoices</h2>
+    <p class="sample-note">Sample estimates and invoices — professional format for ATTS.</p>
+
+    <div class="doc-sample">
+      <div class="doc-header">
+        <h2>All Terrain Tree Service Inc.</h2>
+        <p class="doc-meta">3820 Woodhue Way, North Highlands, CA | (916) 841-3095 | CSLB #1118520</p>
+      </div>
+
+      <div class="doc-grid">
+        <div class="doc-field">
+          <label>Customer</label>
+          <div>Jane Smith</div>
+        </div>
+        <div class="doc-field">
+          <label>Address</label>
+          <div>4521 Oak Lane, Sacramento, CA</div>
+        </div>
+        <div class="doc-field">
+          <label>Tree Species</label>
+          <div>Oak</div>
+        </div>
+        <div class="doc-field">
+          <label>Scope</label>
+          <div>Removal + stump grinding</div>
+        </div>
+      </div>
+
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Scope of Work</th>
+            <th class="text-right">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tree removal — medium oak (30–60ft), debris hauling included</td>
+            <td class="text-right">$1,250</td>
+          </tr>
+          <tr>
+            <td>Stump grinding — 18" stump</td>
+            <td class="text-right">$275</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td class="text-right"><strong>$1,525</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="doc-footer"><strong>Deposit:</strong> 50% due upon approval. Balance due on completion. Pricing valid 7 days.</p>
+
+      <div class="signature-line">
+        <label>Approved by</label>
+        <div style="border-bottom: 1px solid #999; height: 28px; width: 200px;"></div>
+      </div>
+    </div>
+
+    <div class="doc-sample">
+      <div class="doc-header">
+        <h2>All Terrain Tree Service Inc.</h2>
+        <p class="doc-meta">Invoice #INV-2026-0042 | March 19, 2026 | CSLB #1118520</p>
+      </div>
+
+      <div class="doc-grid">
+        <div class="doc-field">
+          <label>Bill To</label>
+          <div>Jane Smith<br>4521 Oak Lane, Sacramento, CA</div>
+        </div>
+        <div class="doc-field">
+          <label>Due</label>
+          <div>Due on completion</div>
+        </div>
+      </div>
+
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th class="text-right">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tree removal — medium oak, debris hauling</td>
+            <td class="text-right">$1,250</td>
+          </tr>
+          <tr>
+            <td>Stump grinding — 18" stump</td>
+            <td class="text-right">$275</td>
+          </tr>
+          <tr>
+            <td>Deposit paid (50%)</td>
+            <td class="text-right">($762.50)</td>
+          </tr>
+          <tr>
+            <td><strong>Balance Due</strong></td>
+            <td class="text-right"><strong>$762.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="doc-footer"><strong>Payment:</strong> Check payable to All Terrain Tree Service Inc. | Zelle/Venmo | Credit card</p>
+    </div>
+
+    <p style="margin-top: 2rem; text-align: center;">
+      <a href="index.html#contact" class="btn">Contact Us</a>
+    </p>
+  </main>
+</body>
+</html>
